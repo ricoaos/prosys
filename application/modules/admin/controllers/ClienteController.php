@@ -33,7 +33,5 @@ class Admin_ClienteController extends Util_Controller_Action2
     	$this->view->paginator = $paginator;
     	//$this->view->autor = $getClientes;
     	$this->view->usuario = $this->iduser->nome;
-    	
     }
 }
-
