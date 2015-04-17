@@ -1,0 +1,9 @@
+.project
+data/
+docs/
+library/
+public/.htaccess
+public/index.php
+scripts/
+tests/
+
