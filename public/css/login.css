@@ -1,0 +1,52 @@
+
+
+body {
+	background: url(../../public/img/fundotattoo.jpg) no-repeat center center fixed;
+  	background-size: cover; /*Css padrão*/
+	-webkit-background-size: cover; /*Css safari e chrome*/
+	-moz-background-size: cover; /*Css firefox*/
+	-ms-background-size: cover; /*Css IE não use mer#^@%#*/
+	-o-background-size: cover; /*Css Opera*/ 	
+}
+
+.wrapper {	
+	margin-top: 15%;
+  	margin-bottom: 15%;
+}
+
+.form-signin-heading{
+   	color: #FFFFFF;
+}
+
+.form-signin {
+  max-width: 450px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #000;
+  border: 1px solid rgba(0,0,0,0.1);  
+  border-radius:11px;
+  opacity: .9;
+
+	.form-control {
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		
+	}
+
+	input[type="text"] {
+	  margin-bottom: 20px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	  
+	}
+
+	input[type="password"] {
+	  
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+}
+
+
