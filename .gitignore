@@ -1,7 +1,7 @@
 .project
 data/
 docs/
-library/
+library/Zend/
 public/.htaccess
 public/index.php
 scripts/
