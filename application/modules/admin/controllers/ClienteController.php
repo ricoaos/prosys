@@ -10,7 +10,7 @@ class Admin_ClienteController extends Util_Controller_Action2
     }
 
     /**
-     * 
+     * @var
      */
     public function indexAction()
     {       	
