@@ -22,7 +22,7 @@ class AutenticacaoController extends Zend_Controller_Action
             $authAdapter = new Zend_Auth_Adapter_DbTable(null, 'usuarios', 'username', 'senha', null);
             //Seta as credenciais com dados vindos do formulário de login
             $authAdapter->setIdentity($login)
-            			->setCredential($senha);                       
+            			->setCredential($senha);                     
             			//->setCredentialTreatment('MD5(?)');
    
             //Realiza autenticação e verifica se é valida

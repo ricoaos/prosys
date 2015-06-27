@@ -1,7 +1,5 @@
-
-
 body {
-	background: url(../../public/img/fundotattoo.jpg) no-repeat center center fixed;
+	background: url(../../public/img/fundotattoo2.jpg) no-repeat center center fixed;
   	background-size: cover; /*Css padrão*/
 	-webkit-background-size: cover; /*Css safari e chrome*/
 	-moz-background-size: cover; /*Css firefox*/

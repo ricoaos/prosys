@@ -15,8 +15,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	Zend_View_Helper_PaginationControl::setDefaultViewPartial('pagination.phtml');
     }
     
-   protected function _initDb()
-   {
+    /**
+     * Locale PHP (Solucao Caracteres Especiais)
+     */
+    
+    protected function _initLocale()
+    {
+    	setlocale(LC_ALL, 'pt_BR.utf-8');
+    }
+    
+   	protected function _initDb()
+   	{
       $config = new Zend_Config_Ini(APPLICATION_PATH.'/configs/application.ini');
       $dbAdapters = array();
  

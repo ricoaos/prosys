@@ -26,6 +26,7 @@ class Model_Cliente {
     
 	public function save($data)
 	{ 			
+		//Zend_Debug::dump($data);die;
 		return $this->obj->insert($data);
 	}
 	

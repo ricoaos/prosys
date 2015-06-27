@@ -10,7 +10,7 @@ class IndexController extends Util_Controller_Action
 
     public function indexAction()
     {
-    	
+    	$this->_redirect("autenticacao");
     	
     }
 
