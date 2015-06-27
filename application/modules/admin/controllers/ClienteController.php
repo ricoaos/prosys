@@ -13,7 +13,7 @@ class Admin_ClienteController extends Util_Controller_Action2
      * 
      */
     public function indexAction()
-    {    	    	 
+    {       	
     	if($this->_request->getParam('id')){
     		
     		$dadospagina = $this->Model->find($this->_request->getParam('id'));
@@ -38,7 +38,7 @@ class Admin_ClienteController extends Util_Controller_Action2
 				    'email' => $row["email"],
 				    'telFixo' => '('.substr($row["telFixo"],0,2).')'.substr($row["telFixo"],2),
 				    'telCelular' => '('.substr($row["telCelular"],0,2).')'.substr($row["telCelular"],2),
-		    		'RG'=> $row["nrRG"]
+		    		'nrRG'=> $row["nrRG"]
 		    	);
 	    	}
 	    	
@@ -48,17 +48,38 @@ class Admin_ClienteController extends Util_Controller_Action2
     	if($this->_request->isPost())
     	{
     		$post = $this->_request->getPost();
-    		
-    		$post["dtNascimento"] =substr($post['dtNascimento'],-4,4)."-".substr($post['dtNascimento'],3,2)."-".substr($post['dtNascimento'],0,2);
-    		$post['cdUser'] = $this->iduser->username;
-    		$post['dt_hmUser'] = date('Y-m-d H:i:s');
-    		
-		    		
+    		list($dd,$mm,$YY) = explode('/',$post["dtNascimento"]);    		
+    		$dados = array(
+    			'nrRG' => preg_replace('/\D+/', "", $post['nrRG']),
+    			'bairro' => $post['bairro'],
+    			'cep' => preg_replace('/\D+/', "", $post['cep']),
+    			'cidade' => $post['cidade'],
+    			'complemento' => $post['complemento'],
+    			'cpf' => preg_replace('/\D+/', "", $post['cpf']),
+    			'dtNascimento' => $YY."-".$mm."-".$dd,
+    			'email' => $post['email'],
+    			'endereco' => $post['endereco'],
+    			'estado' => $post['estado'],
+    			'nmCliente' => $post['nmCliente'],
+    			'numero' => $post['numero'],
+    			'sexo' => $post['sexo'],
+    			'telCelular' => preg_replace('/\D+/', "", $post['telCelular']),
+    			'telFixo' => preg_replace('/\D+/', "", $post['telFixo']),
+    			'cdUser' => $this->iduser->idusuarios,
+				'dt_hmUser' => date('Y-m-d H:i:s')
+    		);
+
+    		if(empty($post['idcliente'])){
+    			$insert = $this->Model->save($dados);
+    		}else{
+    			//Zend_Debug::dump($dados);die;
+    			$insert = $this->Model->update($dados,$post['idcliente']);
+    		}
     		//Zend_Debug::dump($post);die;
     		
-    		$insert = $this->Model->save($post);
-    		$msg = $insert != 0 ? "Registro cadastrado com sucesso!" : "Erro ao cadastrar registro";
-    		$this->view->resposta = $msg;
+    		
+    		//$msg = $insert != 0 ? "Registro cadastrado com sucesso!" : "Erro ao cadastrar registro";
+    		//$this->view->resposta = $msg;
     		
     	}
     	
